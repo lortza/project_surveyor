@@ -3,9 +3,19 @@
   <%= link_to 'Back', admin_surveys_path, class: button_classes %>
 </div> <!-- right -->
 
-<h2>Title</h2>
-<p><%= @survey.title %></p>
+<h2><%= @survey.title %></h2>
+<p><em><%= @survey.description %></em></p>
 
-<h2>Description</h2>
-<p><%= @survey.description %></p>
+<hr>
+
+<h2>Questions</h2>
+
+<% @survey.questions.each do |question| %>
+  <p><%= question.body %></p>
+  <ul>
+    <% question.options.each do |option| %>
+      <li><%= option.body %></li>
+    <% end %> <!-- options.each -->
+  </ul>
+<% end %> <!-- survey.each -->
 

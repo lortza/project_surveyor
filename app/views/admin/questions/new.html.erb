@@ -1,0 +1,26 @@
+<h2><%= @survey.title %></h2>
+<p><%= @survey.description %></p>
+
+<hr>
+
+<h2>Add a Multiple Choice Question</h2>
+
+
+<!--
+
+qty question options
+radio vs check
+required
+ -->
+
+<%= form_for [@survey, @question] do |f| %>
+  <%= f.label :qty_options, 'How many options should the question have?' %>
+  <%= f.number_field :qty_options, class: 'form-control' %>
+
+  <%= f.label :multiple_permitted, 'How many options can be selected?' %>
+  <%= f.colection_select :multiple_permitted, class: 'form-control' %>
+
+
+
+  <%= f.submit %>
+<% end %> <!-- form_for question -->

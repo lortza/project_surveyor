@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227145338) do
+ActiveRecord::Schema.define(version: 20171227205513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "question_options", force: :cascade do |t|
+    t.bigint "question_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_options_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "required", default: false
+    t.integer "qty_options", default: 1
+    t.boolean "multiple_permitted", default: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
 
   create_table "surveys", force: :cascade do |t|
     t.string "title"
@@ -22,4 +41,23 @@ ActiveRecord::Schema.define(version: 20171227145338) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_answers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_option_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_option_id"], name: "index_user_answers_on_question_option_id"
+    t.index ["user_id"], name: "index_user_answers_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "question_options", "questions"
+  add_foreign_key "questions", "surveys"
+  add_foreign_key "user_answers", "question_options"
+  add_foreign_key "user_answers", "users"
 end
