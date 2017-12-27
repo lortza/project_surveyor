@@ -1,4 +1,33 @@
 <h1>Welcome to Survey Builder</h1>
 
-<%= link_to 'Create a Survey', new_admin_survey_path, class: "#{button_classes} btn-block" %>
+<center><%= link_to 'Create a Survey', new_admin_survey_path, class: "#{button_classes}" %></center>
 
+<hr>
+
+<h2>My Surveys</h2>
+
+<ul>
+  <% @surveys.each do |survey| %>
+    <li><strong><%= link_to survey.title, admin_survey_path(survey) %></strong>: <em><%= survey.description %></em></li>
+  <% end %> <!-- surveys.each -->
+</ul>
+
+
+<table class="<%= table_classes %>">
+  <thead>
+    <tr>
+      <th>Survey</th>
+      <th>Description</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= link_to survey.title, admin_survey_path(survey) %></td>
+        <td><%= survey.description %></td>
+        <td><%= survey.updated_at.to_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
