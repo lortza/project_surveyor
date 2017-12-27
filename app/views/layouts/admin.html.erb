@@ -11,14 +11,17 @@
   </head>
 
   <body>
-    <center>ADMIN LAYOUT</center>
-    <%= render 'shared/header' %>
+    <div class="admin-layout">
+      <p class="admin-flag">ADMIN LAYOUT</p>
+      <%= render 'shared/header' %>
 
-    <div class="container">
+      <div class="container">
 
-      <%= yield %>
+        <%= yield %>
 
-    </div>
+      </div><!-- container -->
+    </div> <!-- admin-layout -->
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
