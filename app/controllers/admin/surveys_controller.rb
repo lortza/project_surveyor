@@ -21,7 +21,7 @@ class Admin::SurveysController < AdminController
 
     if @survey.save
       flash[:notice] = 'Survey was successfully created.'
-      redirect_to @survey
+      redirect_to admin_survy_path(@survey)
     else
       flash.now[:error] = 'Something went wrong.'
       render :new
@@ -32,7 +32,7 @@ class Admin::SurveysController < AdminController
   def update
     if @survey.update(survey_params)
       flash[:notice] = 'Survey was successfully updated.'
-      redirect_to @survey
+      redirect_to admin_survy_path(@survey)
     else
       flash.now[:error] = 'Something went wrong.'
       render :edit
@@ -43,7 +43,7 @@ class Admin::SurveysController < AdminController
   def destroy
     @survey.destroy
     flash[:notice] = 'Survey was successfully deleted.'
-    redirect_to surveys_url
+    redirect_to admin_surveys_url
   end
 
   private

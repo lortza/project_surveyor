@@ -9,3 +9,23 @@ nav.site-nav {
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 20px;
 } /* nav.site-nav */
+
+.right {
+  float: right;
+} /* .right */
+
+
+form {
+  label {
+    font-weight: bold;
+  }
+
+  input[type=text], textarea {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type=submit] {
+    margin: 20px 0px;
+  }
+}

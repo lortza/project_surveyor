@@ -1,5 +1,8 @@
+<div class="right">
+  <%= link_to 'Cancel', admin_surveys_path, class: button_classes %>
+</div> <!-- right -->
+
 <h1>New Survey</h1>
 
 <%= render 'form', survey: @survey %>
 
-<%= link_to 'Back', surveys_path %>

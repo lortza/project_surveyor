@@ -1,6 +1,11 @@
+<div class="right">
+  <%= link_to 'Cancel', admin_survey_path(@survey), class: button_classes %>
+</div> <!-- right -->
+
 <h1>Editing Survey</h1>
 
 <%= render 'form', survey: @survey %>
 
-<%= link_to 'Show', @survey %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to 'Delete Survey', admin_survey_path(@survey), method: :delete, data: { confirm: 'Are you sure?' }, class: button_classes('danger') %>
+
+
