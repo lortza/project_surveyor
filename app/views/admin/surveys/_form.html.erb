@@ -1,27 +1,11 @@
-<%= form_with(model: survey, local: true) do |form| %>
-  <% if survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+<%= form_for [:admin, survey] do |form| %>
+  <%= render 'shared/errors', object: survey %>
 
-      <ul>
-      <% survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.label :title %>
+  <%= form.text_field :title, id: :survey_title, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :survey_title %>
-  </div>
+  <%= form.label :description %>
+  <%= form.text_area :description, id: :survey_description, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :survey_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: "#{button_classes('success')} btn-block" %>
 <% end %>
