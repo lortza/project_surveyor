@@ -4,6 +4,10 @@
 
 <hr>
 
+<div class="right">
+  <%= link_to 'Cancel', admin_survey_path(@survey), class: button_classes %>
+</div> <!-- right -->
+
 <h3>Add a Multiple Choice Question</h3>
 
 <p class="form-phases">1. Select Options | <span class="greyed-out">2. Add Question Text</span></p>
@@ -32,7 +36,6 @@
 <% end %> <!-- form_for question -->
 
 
-
 <div class="greyed-out">
-  <%= render '/admin/surveys/existing_survey_questions', questions: @question.survey.questions %>
+  <%= render '/admin/surveys/existing_survey_questions', existing_questions: @survey.questions %>
 </div>

@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
 
   belongs_to :survey
-  has_many :question_options, inverse_of: :question
+  has_many :question_options, inverse_of: :question, dependent: :destroy
   has_many :options, class_name: :QuestionOption
 
   accepts_nested_attributes_for :options,

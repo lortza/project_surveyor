@@ -9,5 +9,21 @@
 
 <hr>
 
-<%= render 'existing_survey_questions', questions: @questions %>
+<h3>Questions</h3>
+
+<ol>
+<% @survey.questions.each do |question| %>
+  <li class="question">
+    <%= display_question(question) %>
+    (<%= link_to 'edit', edit_admin_question_path(question) %> |
+    <%= link_to 'delete', admin_question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete '#{question.body}'? This action cannot be undone."} %>)
+  </li>
+    <ul>
+      <% question.options.each do |option| %>
+        <li><%= option.body %></li>
+      <% end %> <!-- options.each -->
+    </ul>
+<% end %> <!-- survey.each -->
+</ol>
+
 

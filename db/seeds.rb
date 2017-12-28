@@ -1,5 +1,3 @@
-
-
 holiday = Survey.create!({
   title: 'Excitement Across Holidays',
   description: 'Asks participants how excited they feel for given holidays throughout the year'

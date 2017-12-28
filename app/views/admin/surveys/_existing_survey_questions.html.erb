@@ -1,8 +1,10 @@
-<h2>Existing Questions</h2>
+<h3>Questions</h3>
 
 <ol>
-<% questions.each do |question| %>
-  <li class="question"><%= display_question(question) %></li>
+<% existing_questions.each do |question| %>
+  <li class="question">
+    <%= display_question(question) %>
+  </li>
     <ul>
       <% question.options.each do |option| %>
         <li><%= option.body %></li>

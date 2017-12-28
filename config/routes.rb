@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'admin#home'
 
   resources :users
+  resources :surveys, only: [:index]
 
   namespace :admin do
     resources :surveys do

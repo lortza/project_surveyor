@@ -1,3 +1,7 @@
+$fade: #d1d1d1;
+
 .greyed-out {
-  color: #d1d1d1;
+  color: $fade;
+  a:link { color: $fade;}
+  .required {color: $fade;}
 } /* .greyed-out */

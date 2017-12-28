@@ -5,6 +5,7 @@ class Admin::QuestionsController < ApplicationController
 
   def new
     @question = @survey.questions.new
+    @existing_questions = @survey.questions
   end
 
   def create
@@ -17,6 +18,9 @@ class Admin::QuestionsController < ApplicationController
       flash.now[:error] = "Something went wrong."
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
@@ -37,7 +41,14 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
-  def show
+  def destroy
+    session[:return_to] ||= request.referer
+    if @question.destroy
+      flash[:notice] = "Question '#{@question.body}' has been deleted."
+      redirect_to admin_survey_path(@question.survey)
+    else
+      redirect_to session.delete(:return_to)
+    end
   end
 
   private
