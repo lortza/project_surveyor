@@ -13,13 +13,18 @@ h1 {text-align: center;}
   } /* img */
 } /* .brand */
 
+.nav-switch {
+  float: right;
+  margin-top: 5px;
+}
 
-nav.site-nav {
+
+header.site-nav {
   background-color: #f1f1f1;
   padding: 10px;
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 20px;
-} /* nav.site-nav */
+} /* .site-nav */
 
 .right {
   float: right;

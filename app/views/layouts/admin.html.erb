@@ -12,8 +12,11 @@
 
   <body>
     <div class="admin-layout">
-      <p class="admin-flag">ADMIN LAYOUT</p>
-      <%= render 'shared/header' %>
+      <header class="site-nav">
+        <p class="nav-switch"><%= link_to "Switch to User Home", root_path %></p>
+        <span class='brand'> <%= image_tag 'icon.png' %> Survey Builder: Admin</span> <%= link_to 'Home', admin_home_path %> | <%= link_to 'Create a Survey', new_admin_survey_path %>
+      </header>
+      <%= render 'shared/flashes' %>
 
       <div class="container">
 

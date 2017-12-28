@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'admin#home'
+  root 'surveys#index'
+  get 'admin/home', to: 'admin#home'
 
   resources :users
   resources :surveys, only: [:index]

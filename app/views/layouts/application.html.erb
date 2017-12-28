@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
+    <header class="site-nav">
+      <p class="nav-switch"><%= link_to 'Switch to Admin', admin_home_path %></p>
+      <span class='brand'> <%= image_tag 'icon.png' %> Survey Builder</span> <%= link_to 'Home', root_path %>
+    </header>
+    <%= render 'shared/flashes' %>
 
     <div class="container">
 
