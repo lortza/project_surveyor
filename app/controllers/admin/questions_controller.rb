@@ -29,6 +29,7 @@ class Admin::QuestionsController < ApplicationController
   def update
     if @question.update_attributes(question_params)
       flash[:notice] = 'Nice job! The question has been updated.'
+      # redirect_to edit_admin_question_path()
       redirect_to admin_survey_path(@question.survey)
     else
       flash.now[:error] = "There was a problem."

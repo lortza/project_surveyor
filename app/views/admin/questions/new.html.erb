@@ -30,3 +30,9 @@
   <%= f.submit 'Continue to the Next Step ->', class: "#{button_classes} btn-block" %>
 
 <% end %> <!-- form_for question -->
+
+
+
+<div class="greyed-out">
+  <%= render '/admin/surveys/existing_survey_questions', questions: @question.survey.questions %>
+</div>

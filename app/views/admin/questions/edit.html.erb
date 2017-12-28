@@ -23,3 +23,9 @@
 <% end %> <!-- form_for question -->
 
 <%= link_to 'Back to Previous Step', '#', class: button_classes %>
+
+<hr>
+
+<div class="greyed-out">
+  <%= render '/admin/surveys/existing_survey_questions', questions: @question.survey.questions %>
+</div>
