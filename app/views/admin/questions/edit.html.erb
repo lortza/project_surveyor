@@ -1,2 +1,25 @@
-<h1>Admin::Questions#edit</h1>
-<p>Find me in app/views/admin/questions/edit.html.erb</p>
+<div class="greyed-out">
+  <%= render '/admin/surveys/survey_info', survey: @question.survey %>
+</div>
+
+<hr>
+
+<h3>Add a Multiple Choice Question</h3>
+
+<p class="form-phases"><span class="greyed-out">1. Select Options</span> | 2. Add Question Text</p>
+
+
+<%= form_for [:admin, @question] do |f| %>
+  <%= f.label :body, "What is your question?" %>
+  <%= f.text_field :body, class: 'form-control' %>
+
+  <p><em>Next, add the text for each of your options.</em></p>
+  <%= f.fields_for :options do |f_option| %>
+    <%= f_option.label :body, "Option: " %>
+    <%= f_option.text_field :body, class: 'form-control' %>
+  <% end %>
+
+  <%= f.submit 'Submit Options', class: "#{button_classes} btn-block" %>
+<% end %> <!-- form_for question -->
+
+<%= link_to 'Back to Previous Step', '#', class: button_classes %>

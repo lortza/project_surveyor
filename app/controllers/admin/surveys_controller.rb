@@ -7,6 +7,7 @@ class Admin::SurveysController < AdminController
   end
 
   def show
+    @questions = @survey.questions.order(:id)
   end
 
   def new

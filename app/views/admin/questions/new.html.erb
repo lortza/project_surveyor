@@ -1,26 +1,32 @@
-<h2><%= @survey.title %></h2>
-<p><%= @survey.description %></p>
+<div class="greyed-out">
+  <%= render '/admin/surveys/survey_info', survey: @question.survey %>
+</div>
 
 <hr>
 
-<h2>Add a Multiple Choice Question</h2>
+<h3>Add a Multiple Choice Question</h3>
 
+<p class="form-phases">1. Select Options | <span class="greyed-out">2. Add Question Text</span></p>
 
-<!--
-
-qty question options
-radio vs check
-required
- -->
-
-<%= form_for [@survey, @question] do |f| %>
+<%= form_for [:admin, @survey, @question] do |f| %>
   <%= f.label :qty_options, 'How many options should the question have?' %>
   <%= f.number_field :qty_options, class: 'form-control' %>
 
-  <%= f.label :multiple_permitted, 'How many options can be selected?' %>
-  <%= f.colection_select :multiple_permitted, class: 'form-control' %>
+  <%= f.label :multiple_permitted, 'How many options can be selected?' %><br>
 
+  <label>
+    <%= f.radio_button :multiple_permitted, false %>
+    Just One
+  </label>
 
+  <label>
+    <%= f.radio_button :multiple_permitted, true %>
+    Multiple
+  </label>
 
-  <%= f.submit %>
+  <%= f.label :required, "Is this question required?" %><br>
+  <%= f.collection_select :required, Question::REQUIRED, :first, :last, {}, class: 'form-control' %>
+
+  <%= f.submit 'Continue to the Next Step ->', class: "#{button_classes} btn-block" %>
+
 <% end %> <!-- form_for question -->

@@ -1,3 +1,16 @@
-// Place all the styles related to the admin/questions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.form-phases {
+  text-align: center;
+} /* .form-phases */
+
+.required {
+  color: red;
+} /* .required */
+
+.multi {
+  font-size: 0.75em;
+  margin-left: 10px;
+} /* .multi */
+
+li.question {
+  margin-top: 15px;
+} /* li.question */
