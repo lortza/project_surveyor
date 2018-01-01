@@ -8,7 +8,6 @@ class Question < ApplicationRecord
                                 :reject_if => :all_blank,
                                 :allow_destroy => true
 
-
  # MULTI_PERMITTED = {false => 'Just One', true => 'Multiple'}
 
  REQUIRED = {false => 'No', true => 'Yes'}

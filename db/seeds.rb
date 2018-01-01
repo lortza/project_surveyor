@@ -1,3 +1,12 @@
+User.create!([
+  {name: 'laura_palmer'},
+  {name: 'dale_cooper'},
+  {name: 'log_lady'},
+  {name: 'audrey_horne'},
+  {name: 'leland_palmer'}
+])
+
+
 holiday = Survey.create!({
   title: 'Excitement Across Holidays',
   description: 'Asks participants how excited they feel for given holidays throughout the year'
@@ -32,3 +41,9 @@ c3os = c3.question_options.create!([
   {body: "floofy ones"}
 ])
 
+# Fills out a survey
+user = User.last
+chicken.questions.each do |question|
+  option = question.options.sample
+  UserAnswer.create!(user_id: user.id, question_option_id: option.id)
+end

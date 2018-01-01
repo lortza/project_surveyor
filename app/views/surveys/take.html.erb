@@ -1,0 +1,30 @@
+<%= render 'survey_info', survey: @survey %>
+
+
+<form action="/surveys" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Select a User</label>
+  <select name="user_id" class="form-control">
+    <% @users.each do |user| %>
+    <option value="<%= user.id %>"><%= user.name %></option>
+    <% end %>
+  </select>
+
+  <input type="hidden" name="id" value="<%= @survey.id %>" />
+  <ol>
+    <% @survey.questions.order(:id).each do |question| %>
+    <li>
+      <label><%= display_question(question) %></label>
+      <% if question.multiple? %>
+        <%= render partial: 'checkboxes', locals: {options: question.options} %>
+      <% else %>
+        <%= render partial: 'radio_buttons', locals: {options: question.options} %>
+      <% end %>
+    </li>
+    <% end %><!-- questions -->
+  </ol>
+  <input type="submit" name="submit" value="Submit" class="<%= button_classes %> btn-block">
+</form>
+

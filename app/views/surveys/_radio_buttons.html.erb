@@ -1,0 +1,11 @@
+<div class="radio-buttons">
+  <% options.shuffle.each do |option| %>
+      <label for="<%= option.id %>">
+        <input type="radio" name="radio_ids[<%= option.question.id %>]" value="<%= option.id %>">
+        <!-- <input type="radio" name="answer_ids[<%= option.question.id %>][<%= option.id %>]"> -->
+        <%= option.body %>
+      </label>
+  <% end %>
+</div> <!-- radio-buttons -->
+
+

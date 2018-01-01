@@ -1,0 +1,5 @@
+<div class="checkboxes">
+  <% options.shuffle.each do |option| %>
+    <input type="checkbox" name="checkbox_ids[]" value="<%= option.id %>"> <%= option.body %><br>
+  <% end %>
+</div> <!-- checkboxes -->
