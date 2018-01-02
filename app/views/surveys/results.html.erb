@@ -1,0 +1,34 @@
+<div class="right">
+  <%= link_to 'Take Survey', take_survey_path(@survey), class: button_classes  %>
+</div> <!-- right -->
+
+<h1>Survey Results</h1>
+<hr>
+
+<%= render 'survey_info', survey: @survey %>
+
+
+
+<ol>
+<% @survey.questions.each do |question| %>
+  <li>
+    <strong><%= question.body %></strong><br>
+    <table class="<%= table_classes %>">
+      <thead>
+        <tr>
+          <th>Response</th>
+          <th class="count">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% question.options.each do |option| %>
+          <tr>
+            <td><%= option.body %></td>
+            <td><%= option.response_counter %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </li>
+<% end %> <!-- survey.questions.each -->
+</ol>

@@ -1,5 +1,5 @@
 
 
 <% @surveys.each do |survey| %>
-  <p><%= link_to survey.title, take_survey_path(survey) %></p>
+  <p><%= survey.title %>: <%= link_to 'Take Survey', take_survey_path(survey) %> | <%= link_to 'See Results', survey_results_path(survey) %></p>
 <% end %>

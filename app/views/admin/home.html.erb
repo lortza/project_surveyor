@@ -4,19 +4,13 @@
 
 <h2>My Surveys</h2>
 
-<ul>
-  <% @surveys.each do |survey| %>
-    <li><strong><%= link_to survey.title, admin_survey_path(survey) %></strong>: <em><%= survey.description %></em></li>
-  <% end %> <!-- surveys.each -->
-</ul>
-
-
 <table class="<%= table_classes %>">
   <thead>
     <tr>
       <th>Survey</th>
       <th>Description</th>
       <th>Last Updated</th>
+      <th>Times Taken</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +19,7 @@
         <td><%= link_to survey.title, admin_survey_path(survey) %></td>
         <td><%= survey.description %></td>
         <td><%= survey.updated_at.to_date %></td>
+        <td><%= survey.times_taken %></td>
       </tr>
     <% end %>
   </tbody>

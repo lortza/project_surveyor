@@ -43,7 +43,13 @@ c3os = c3.question_options.create!([
 
 # Fills out a survey
 user = User.last
+submission_id = chicken.generate_token(user)
+
 chicken.questions.each do |question|
   option = question.options.sample
-  UserAnswer.create!(user_id: user.id, question_option_id: option.id)
+  UserAnswer.create!({
+    user_id: user.id,
+    question_option_id: option.id,
+    submission_id: submission_id
+    })
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :surveys, only: [:index, :create]
   get 'surveys/:id/take' => 'surveys#take', :as => 'take_survey'
+  get 'surveys/:id/results' => 'surveys#results', :as => 'survey_results'
   # post 'surveys/:id/submit' => 'surveys#submit'
 
   namespace :admin do
