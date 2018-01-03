@@ -18,6 +18,7 @@
   <input type="hidden" name="id" value="<%= @survey.id %>" />
   <ol>
     <% @survey.questions.order(:id).each do |question| %>
+     <input type="hidden" name="question_id" value="<%= question.id %>" />
     <li>
       <label><%= display_question(question) %></label>
       <% if question.multiple? %>

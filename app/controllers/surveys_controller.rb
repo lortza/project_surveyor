@@ -9,6 +9,13 @@ class SurveysController < ApplicationController
     @users = User.all.order(:name)
   end
 
+  def new
+    @submission = @survey.submissions.build
+    @submission.user_answers = @survey.questions.map do |question|
+      UserAnswer.new(question_id: question.id)
+    end
+  end
+
   def results
     @survey = Survey.find(params[:id])
   end
